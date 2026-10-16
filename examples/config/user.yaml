@@ -55,3 +55,10 @@ jql_aliases:
   my-bugs: "assignee = currentUser() AND issuetype = Bug AND status != Closed"
   active-sprint: "project = PROJ AND sprint in openSprints()"
   project-open: "project = {project} AND status != Closed"
+  # change MYUSERNAME to be your name, username, or email as seen by Jira.
+  # also change the year as appropriate, q4 assumes you run it sometime in the following year.
+  q1-2026-contributions: '(assignee = currentUser() AND resolved >= startOfYear() AND resolved < startOfYear("+3M")) OR issuekey in updatedBy("MYUSERNAME", "2026-01-01", "2026-03-31")'
+  q2-2026-contributions: '(assignee = currentUser() AND resolved >= startOfYear("+3M") AND resolved < startOfYear("+6M")) OR issuekey in updatedBy("MYUSERNAME", "2026-04-01", "2026-06-30")'
+  q3-2026-contributions: '(assignee = currentUser() AND resolved >= startOfYear("+6M") AND resolved < startOfYear("+9M")) OR issuekey in updatedBy("MYUSERNAME", "2026-07-01", "2026-09-30")'
+  q4-2026-contributions: '(assignee = currentUser() AND resolved >= startOfYear("-3M") AND resolved < startOfYear()) OR issuekey in updatedBy("MYUSERNAME", "2026-10-01", "2026-12-31")'
+
